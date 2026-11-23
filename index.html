@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>คำศัพท์ HSK 3.0</title>
+<meta name="theme-color" content="#1f2a44">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="HSK คำศัพท์">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+/* VOICE: calm, exact, like a good dictionary — but alive to the touch, so study never feels flat.
+   IDEA: a teacher's marked practice sheet: 田字格 paper, red ink circling the words that keep coming back.
+   PICTURE: a globe of hanzi you drag to spin (or a zoomable map); tapped words spring forward.
+   COLOUR and TYPE: white paper, ink #1b1b1f, red ink for frequent, jade mid, pencil grey rare. Noto Serif SC hanzi, IBM Plex Sans Thai.
+   LAYOUT: title + controls; field and word sheet side by side (sheet becomes a bottom sheet under 900px); ranked list below. */
+:root{color-scheme:light dark;--bg:#ffffff;--paper:#fbfbfa;--ink:#1b1b1f;--mute:#6a6a70;--rule:#e4e3df;--grid:#f0eeea;--hi:#c8102e;--mid:#1f6f78;--lo:#9a9a9f;--none:#c9c8c4;--t1:#d1342f;--t2:#d07a00;--t3:#2f9e44;--t4:#2f6db5;--t0:var(--mute)}
+@media(prefers-color-scheme:dark){:root{--bg:#121316;--paper:#191a1e;--ink:#ecebe7;--mute:#a3a3aa;--rule:#2c2d33;--grid:#1f2025;--hi:#ff5a6e;--mid:#4fb6c0;--lo:#6e6e76;--none:#3a3b42;--t1:#ff6b63;--t2:#ffb02e;--t3:#5fd17a;--t4:#6ea8f0}}
+:root[data-theme=light]{color-scheme:light;--bg:#ffffff;--paper:#fbfbfa;--ink:#1b1b1f;--mute:#6a6a70;--rule:#e4e3df;--grid:#f0eeea;--hi:#c8102e;--mid:#1f6f78;--lo:#9a9a9f;--none:#c9c8c4;--t1:#d1342f;--t2:#d07a00;--t3:#2f9e44;--t4:#2f6db5}
+:root[data-theme=dark]{color-scheme:dark;--bg:#121316;--paper:#191a1e;--ink:#ecebe7;--mute:#a3a3aa;--rule:#2c2d33;--grid:#1f2025;--hi:#ff5a6e;--mid:#4fb6c0;--lo:#6e6e76;--none:#3a3b42;--t1:#ff6b63;--t2:#ffb02e;--t3:#5fd17a;--t4:#6ea8f0}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "IBM Plex Sans Thai","Thonburi","Sukhumvit Set","Leelawadee UI","Tahoma","PingFang SC","Noto Sans SC",system-ui,sans-serif;overflow-x:clip}
+.zh{font-family:"Noto Serif SC","Songti SC","STSong","Source Han Serif SC","SimSun",serif}
+.band{padding:clamp(20px,3vw,40px) max(4vw,16px)}
+.wrap{max-width:1240px;margin:auto}
+h1{font-size:clamp(28px,4vw,42px);line-height:1.05;margin:0;text-wrap:balance}
+.lead{font-size:19px;font-weight:600;margin:8px 0 0}
+.sub{color:var(--mute);margin:4px 0 0;font-size:15px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px}
+input[type=search],select{font:inherit;font-size:16px;min-height:44px;padding:0 12px;border:1px solid var(--rule);border-radius:10px;background:var(--paper);color:var(--ink)}
+input[type=search]{flex:1 1 200px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:10px;overflow:hidden}
+.seg button,.btn{font:inherit;font-size:15px;min-height:44px;padding:0 14px;border:0;background:var(--paper);color:var(--ink);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.btn{border:1px solid var(--rule);border-radius:10px}
+.bub{outline:none}.bub:focus-visible .in>circle:first-child{stroke-width:5}
+button:focus-visible,input:focus-visible,select:focus-visible,tr:focus-visible{outline:3px solid var(--mid);outline-offset:2px}
+.main{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:20px;margin-top:16px}
+.fig{position:relative;min-height:540px;border:1px solid var(--rule);border-radius:14px;overflow:hidden;
+background:var(--paper) linear-gradient(var(--grid) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/40px 40px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab;user-select:none}
+.fig>svg:active{cursor:grabbing}
+.gl{position:absolute;inset:0;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;overflow:hidden;display:none}
+.gl.on{display:block}
+.ml{position:absolute;inset:0;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;overflow:hidden;display:none}.ml.on{display:block}
+.mz{position:absolute;left:0;top:0;width:100%;height:100%;transform-origin:0 0}.mz.moving{will-change:transform}
+.ml .gb{will-change:auto;border-width:1.6px;transition:none}
+.gl .cam{position:absolute;left:0;top:0;width:100%;height:100%;transform-origin:0 0}
+.gb{position:absolute;left:0;top:0;border-radius:50%;border:2.4px solid var(--c);display:flex;align-items:center;justify-content:center;will-change:transform,opacity;font-weight:700;color:var(--ink);line-height:1;white-space:nowrap;outline:none;-webkit-tap-highlight-color:transparent}
+.gb i{position:absolute;inset:0;border-radius:50%;background:var(--c);opacity:.17}
+.gb span{position:relative;font-family:inherit}
+.gb.sel i{opacity:1}.gb.sel{color:var(--bg)}.gb:focus-visible{box-shadow:0 0 0 4px var(--c)}
+.gmsg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:15px}
+.lvs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.lvs button{border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+.lvs button b{font-variant-numeric:tabular-nums}.lvs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lsum{margin:0 0 10px;color:var(--mute);font-size:14px}
+tbody tr{content-visibility:auto;contain-intrinsic-size:auto 46px}
+.hint{position:absolute;left:12px;bottom:10px;font-size:13px;color:var(--mute);background:var(--bg);padding:3px 10px;border-radius:999px;border:1px solid var(--rule);pointer-events:none}
+.bub{cursor:pointer}.bub text{pointer-events:none}
+.bub .in{transform-box:fill-box;transform-origin:center;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.bub:hover .in{transform:scale(1.08)}
+svg{--sel:1.22}svg.globe{--sel:1.25}
+.bub.sel .in{transform:scale(var(--sel))}
+svg.globe .bub .in,svg.globe .bub:hover .in,svg.globe .bub.sel .in{transition:none;transform:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--mute);margin-top:10px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.sheet{border:1px solid var(--rule);border-radius:14px;padding:20px;background:var(--bg);align-self:start;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}
+.sheet .body.enter{animation:rise .45s cubic-bezier(.2,1.3,.4,1)}
+@keyframes rise{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+.close{display:none}
+.big{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.big .zh{font-size:52px;line-height:1}
+.py{font-size:22px;font-weight:600;letter-spacing:.02em}
+.say{width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;font-size:18px;flex:none}
+.th{font-size:18px;margin:8px 0 10px}
+.chip{display:inline-block;font-size:13px;padding:2px 10px;border-radius:999px;border:1px solid currentColor;margin:0 6px 6px 0}
+h3{font-size:14px;color:var(--mute);font-weight:600;margin:16px 0 6px}
+.bar{height:8px;border-radius:4px;background:var(--grid);overflow:hidden}.bar b{display:block;height:100%}
+.parts{display:grid;grid-template-columns:5em minmax(0,1fr) 2.5em;gap:6px 10px;align-items:center;font-size:14px}
+.parts span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+ul.col{list-style:none;padding:0;margin:0}ul.col li{padding:6px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.ex{padding:10px 12px;border-radius:10px;background:var(--paper);margin-bottom:8px;display:flow-root}
+.ex .zh{font-size:19px;font-weight:600}.ex p{margin:2px 0;font-size:14px}.ex .p2{color:var(--mute)}
+.ex .say{float:right;margin-left:8px}
+.empty{color:var(--mute)}
+.note{font-size:13px;color:var(--mute);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule)}
+th{font-size:13px;color:var(--mute);font-weight:600}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--paper)}
+details{margin-top:20px;border-top:1px solid var(--rule);padding-top:14px}
+summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+textarea{width:100%;min-height:160px;font:13px/1.5 ui-monospace,monospace;padding:10px;border:1px solid var(--rule);border-radius:10px;background:var(--paper);color:var(--ink)}
+#msg{font-size:14px;color:var(--mute)}
+.back{font:inherit;font-size:15px;min-height:44px;padding:0 14px;border:1px solid var(--rule);border-radius:10px;background:var(--paper);color:var(--ink);cursor:pointer;margin-bottom:12px}
+.crow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 0;border-bottom:1px solid var(--rule)}
+.cbtn{font-family:"Noto Serif SC","Songti SC","STSong","Source Han Serif SC","SimSun",serif;font-size:24px;font-weight:700;min-width:48px;min-height:48px;border:1px solid var(--rule);border-radius:10px;background:var(--paper);color:var(--ink);cursor:pointer;padding:0 8px;line-height:1.1}
+.cbtn small{display:block;font:12px "IBM Plex Sans Thai","Thonburi","Sukhumvit Set","Leelawadee UI","Tahoma",sans-serif;color:var(--mute);font-weight:400}
+.cbtn.sem{border-color:var(--hi)}.cbtn.pho{border-color:var(--mid)}
+.eq{color:var(--mute);font-size:18px}
+.pat{padding:10px 12px;border-radius:10px;border:1px solid var(--rule);margin-bottom:8px}
+.pat .f{font-size:17px;font-weight:600;font-family:"Noto Serif SC","Songti SC","STSong","Source Han Serif SC","SimSun","IBM Plex Sans Thai","Thonburi","Sukhumvit Set","Leelawadee UI","Tahoma",serif}
+.pat .f .hl{color:var(--hi)}
+.slot{display:inline-block;font:600 13px "IBM Plex Sans Thai","Thonburi","Sukhumvit Set","Leelawadee UI","Tahoma",sans-serif;padding:1px 7px;border-radius:6px;background:var(--grid);color:var(--mid);vertical-align:2px}
+.pat p{margin:4px 0;font-size:14px}.pat .zh{font-size:17px}
+.tip{font-size:14px;padding:10px 12px;border-radius:10px;background:var(--grid);margin-top:8px}
+.hws{display:flex;flex-wrap:wrap;gap:10px}
+.hwc{text-align:center;font-size:12px;color:var(--mute)}
+.hw{width:112px;height:112px;border:1px solid var(--rule);border-radius:8px;background:var(--paper);
+background-image:linear-gradient(var(--rule),var(--rule)),linear-gradient(var(--rule),var(--rule)),linear-gradient(45deg,transparent calc(50% - .5px),var(--grid) 50%,transparent calc(50% + .5px)),linear-gradient(-45deg,transparent calc(50% - .5px),var(--grid) 50%,transparent calc(50% + .5px));
+background-size:100% 1px,1px 100%,100% 100%,100% 100%;background-position:center;background-repeat:no-repeat}
+.hwbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.words{display:flex;flex-wrap:wrap;gap:6px}
+.words button{font:600 17px "Noto Serif SC","Songti SC","STSong","Source Han Serif SC","SimSun",serif;min-height:44px;padding:0 12px;border:1px solid var(--rule);border-radius:10px;background:var(--paper);color:var(--ink);cursor:pointer}
+@media(max-width:900px){.main{grid-template-columns:minmax(0,1fr)}.fig{min-height:440px}
+ .sheet{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:5;max-height:76vh;border-radius:18px 18px 0 0;box-shadow:0 -10px 40px rgb(0 0 0/.18);transform:translateY(105%);transition:transform .4s cubic-bezier(.2,1.2,.4,1)}
+ .sheet.open{transform:none}
+ .close{display:block;position:sticky;top:0;margin:-8px -8px 4px auto;width:44px;height:44px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink);font-size:20px;cursor:pointer}}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--mute)}.stack td:empty{display:none}.fig{min-height:380px}tbody tr{contain-intrinsic-size:auto 150px}}
+@media(prefers-reduced-motion:reduce){.bub .in,.sheet{transition:none}.sheet .body.enter{animation:none}}
+</style>
+</head>
+<body>
+<div class="band wrap">
+  <h1>คำศัพท์ HSK 3.0 ระดับ 1–6</h1>
+  <p class="lead">คำไหนออกสอบบ่อย ต้องรู้คำนั้นก่อน</p><p class="note" id="off" style="margin:4px 0 0"></p>
+  <p class="sub">วงยิ่งใหญ่ = ยิ่งเจอในข้อสอบหลายชุด · ลากเพื่อหมุนหาคำ แตะคำเพื่อหยุดและดูรายละเอียด แตะซ้ำเพื่อให้หมุนต่อ</p>
+  <div class="ctl">
+    <input type="search" id="q" placeholder="ค้นหาทุกระดับ: ตัวจีน พินอิน หรือคำแปลไทย" aria-label="ค้นหาคำ">
+    <select id="lv" aria-label="กรองระดับ HSK"></select>
+    <select id="pos" aria-label="กรองชนิดคำ"></select>
+  </div>
+  <div class="ctl" style="margin-top:8px">
+    <div class="seg" role="group" aria-label="มุมมอง" id="view"><button data-v="globe" aria-pressed="true">ลูกโลก</button><button data-v="map" aria-pressed="false">แผนที่</button></div>
+    <div class="seg" role="group" aria-label="กรองความถี่" id="tier"><button data-t="all" aria-pressed="true">ทั้งหมด</button><button data-t="hi" aria-pressed="false">บ่อย</button><button data-t="mid" aria-pressed="false">กลาง</button><button data-t="lo" aria-pressed="false">น้อย</button><button data-t="none" aria-pressed="false">ไม่เจอ</button></div>
+    <div class="seg" role="group" aria-label="ระบายสีตาม" id="mode"><button data-m="freq" aria-pressed="true">สีตามความถี่</button><button data-m="pos" aria-pressed="false">สีตามชนิดคำ</button></div>
+  </div>
+  <div class="main">
+    <div>
+      <div class="fig" id="fig"><div class="ml" id="ml" role="group" aria-label="แผนที่คำศัพท์ ขนาดตามความถี่"><div class="mz" id="mz"></div></div><div class="gl on" id="gl" role="group" aria-label="ลูกโลกคำศัพท์ ขนาดตามความถี่"><div class="cam" id="cam"></div></div><span class="hint" id="hint"></span></div>
+      <div class="legend" id="legend"></div>
+      <p class="note" id="src"></p>
+    </div>
+    <aside class="sheet" id="sheet" aria-live="polite"><button class="close" id="close" aria-label="ปิด">×</button><div class="body" id="body"></div></aside>
+  </div>
+</div>
+
+<div class="band wrap">
+  <h2 style="font-size:22px;margin:0 0 10px">รายการคำศัพท์ทั้งหมด · เรียงตามความถี่</h2>
+  <div class="lvs" id="lvs" role="group" aria-label="เลือกระดับ HSK"></div><p class="lsum" id="lsum"></p>
+  <table class="stack"><thead><tr><th>#</th><th>คำ</th><th>พินอิน</th><th>ความหมาย</th><th>ชนิดคำ</th><th>HSK</th><th>เจอ</th></tr></thead><tbody id="list"></tbody></table>
+  <p class="note" id="more"></p>
+  <details>
+    <summary>ใส่ข้อมูลของตัวเอง (JSON)</summary>
+    <p class="note">วาง JSON ที่ Claude ทำจากข้อสอบจริงลงช่องนี้ แล้วกด "ใช้ข้อมูลนี้" ข้อมูลจะเก็บไว้ในเบราว์เซอร์นี้ ฟิลด์ของแต่ละคำ: h ตัวจีน, p พินอิน (เว้นวรรคระหว่างพยางค์), th ความหมาย, pos ชนิดคำ [n v adj adv conj prep m part pron num], lv ระดับ HSK, f จำนวนชุดที่เจอ, parts [ฟัง, อ่าน, เขียน], col คำคู่ [[จีน, พินอิน, ไทย]], ex ประโยค [[จีน, พินอิน, ไทย]] และ meta.sets คือจำนวนชุดข้อสอบทั้งหมด</p>
+    <textarea id="ta" aria-label="ข้อมูล JSON"></textarea>
+    <div class="ctl" style="margin-top:8px"><button class="btn" id="apply">ใช้ข้อมูลนี้</button><button class="btn" id="copy">คัดลอกข้อมูลปัจจุบัน</button><button class="btn" id="reset">กลับไปใช้ข้อมูลหลัก</button><span id="msg"></span></div>
+  </details>
+</div>
+
+<script src="d3.min.js"></script>
+<script src="hanzi-writer.min.js"></script>
+<script>
+{
+const POS={n:["คำนาม","名词","Noun","#3b7dd8"],v:["คำกริยา","动词","Verb","#d63a3a"],adj:["คุณศัพท์","形容词","Adjective","#e8860c"],adv:["กริยาวิเศษณ์","副词","Adverb","#8b5cf6"],conj:["คำเชื่อม","连词","Conjunction","#22a35f"],prep:["บุพบท","介词","Preposition","#d6409f"],m:["ลักษณนาม","量词","Measure word","#12aab5"],part:["คำช่วย","助词","Particle","#7a7a80"],pron:["สรรพนาม","代词","Pronoun","#9a6b45"],num:["ตัวเลข","数词","Numeral","#c9a20a"],suf:["คำเติมหน้า/ท้าย","词缀","Affix","#64748b"],intj:["คำอุทาน","叹词","Interjection","#b45309"],idiom:["สำนวน","成语","Idiom","#0d9488"],phr:["วลี","短语","Phrase","#a16207"]};
+const posOf=k=>POS[k]||[k,"","",POS.part[3]];
+const PARTS=["听力 ฟัง","阅读 อ่าน","书写 เขียน"],TL={hi:"เจอบ่อย",mid:"เจอกลาง",lo:"เจอน้อย",none:"ไม่พบในข้อสอบ"};
+const T1="āēīōūǖĀĒĪŌŪ",T2="áéíóúǘÁÉÍÓÚ",T3="ǎěǐǒǔǚǍĚǏǑǓ",T4="àèìòùǜÀÈÌÒÙ";
+const GLOBE_MAX=120,MAP_MAX=600,LIST_STEP=200,UP=1.7;
+const RM=matchMedia("(prefers-reduced-motion:reduce)");
+let DATA={meta:{sets:1},words:[]},state={q:"",lv:"all",pos:"all",tier:"all",mode:"freq",view:"globe",sel:null,locked:false,nav:[]};
+const STROKES={},strokeP={};let CHARS={},WMAP={};const CH=()=>CHARS;
+const NBD=16,NBC=24,hk=s=>[...s].reduce((a,c)=>a+c.codePointAt(0),0)%NBD,cb=c=>c.codePointAt(0)%NBC;
+const detP={},detDone=new Set(),chP={},chDone=new Set();
+const fromArr=a=>{const w={h:a[0],p:a[1],th:a[2],lv:a[3],pos:a[4]?a[4].split(","):[],f:a[5],n:a[6]};if(a[7])w.id=a[7];return w};
+const loadDet=w=>{if(!DATA.split)return Promise.resolve();const b=hk(K(w));return detP[b]||(detP[b]=fetch(`det/${b}.json`).then(r=>r.json()).then(o=>{for(const k in o){const x=WMAP[k];if(x)Object.assign(x,o[k])}detDone.add(b)}).catch(()=>{delete detP[b]}))};
+const loadChars=s=>{if(!DATA.split)return Promise.resolve();return Promise.all([...new Set([...s].map(cb))].map(b=>chP[b]||(chP[b]=fetch(`chars/${b}.json`).then(r=>r.json()).then(o=>{Object.assign(CHARS,o);chDone.add(b)}).catch(()=>{delete chP[b]}))))};
+const ensureChars=s=>loadChars(s).then(()=>{const comp=[...s].flatMap(c=>CHARS[c]?.d||[]).join("");return comp?loadChars(comp):null});
+const charsReady=s=>[...s].every(c=>chDone.has(cb(c)))&&[...s].flatMap(c=>CHARS[c]?.d||[]).every(c=>chDone.has(cb(c)));
+const wordReady=w=>!DATA.split||(detDone.has(hk(K(w)))&&charsReady(w.h));
+const K=w=>w.id||w.h,MEAN=w=>w.th||w.en||"";
+const $=id=>document.getElementById(id);
+const esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const probe=document.createElement("i");probe.style.display="none";document.body.appendChild(probe);
+let CSSC={};const css=v=>{if(CSSC[v])return CSSC[v];probe.style.color=`var(${v})`;return CSSC[v]=getComputedStyle(probe).color};
+const N=()=>DATA.meta?.sets||Math.max(1,...DATA.words.map(w=>w.f));
+const maxF=()=>Math.max(1,...DATA.words.map(w=>w.f));
+const tier=w=>{if(!w.f)return"none";const r=w.f/N();return r>=.7?"hi":r>=.4?"mid":"lo"};
+const tone=x=>{for(const c of x){if(T1.includes(c))return 1;if(T2.includes(c))return 2;if(T3.includes(c))return 3;if(T4.includes(c))return 4}return 0};
+const pyHtml=p=>String(p||"").split(/\s+/).map(x=>`<span style="color:var(--t${tone(x)})">${esc(x)}</span>`).join("");
+const pyFlat=p=>String(p||"").replace(/\s+/g,"");const plain=p=>pyFlat(p).normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/ü/g,"v").toLowerCase();
+const color=w=>state.mode==="freq"?css("--"+tier(w)):posOf(w.pos?.[0])[3];
+const say=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="zh-CN";u.rate=.8;speechSynthesis.speak(u)}catch(e){}};
+const sk=w=>w._k||(w._k=[pyFlat(w.p).toLowerCase(),plain(w.p),String(w.th||"").toLowerCase()]);
+const shown=()=>{const q=state.q.trim().toLowerCase(),qp=q.replace(/\s/g,""),qn=qp.normalize("NFD").replace(/[\u0300-\u036f]/g,"");return DATA.words.filter(w=>(q||state.lv==="all"||String(w.lv)===state.lv)&&(q||state.pos==="all"||(w.pos||[]).includes(state.pos))&&(q||state.tier==="all"||tier(w)===state.tier)&&(!q||w.h.includes(q)||sk(w)[0].includes(qp)||sk(w)[1].includes(qn)||sk(w)[2].includes(q)||(w.en&&w.en.toLowerCase().includes(q)))).sort((a,b)=>b.f-a.f||(b.n||0)-(a.n||0)||a.lv-b.lv)};
+
+/* ---------- controls ---------- */
+function fillSelects(){
+  const lvs=[...new Set(DATA.words.map(w=>w.lv).filter(Boolean))].sort((a,b)=>a-b);
+  $("lv").innerHTML=`<option value="all">ทุกระดับ HSK</option>`+lvs.map(l=>`<option value="${esc(l)}">HSK ${l==7?"7–9":esc(l)}</option>`).join("");
+  const used=Object.keys(POS).filter(k=>DATA.words.some(w=>(w.pos||[]).includes(k)));
+  $("pos").innerHTML=`<option value="all">ทุกชนิดคำ</option>`+used.map(k=>`<option value="${k}">${POS[k][0]} · ${POS[k][1]} · ${POS[k][2]}</option>`).join("");
+  state.lv=lvs.includes(4)?"4":"all";$("lv").value=state.lv;state.pos="all";
+}
+function legend(){
+  $("legend").innerHTML=state.mode==="freq"?["hi","mid","lo","none"].map(t=>`<span><i style="background:var(--${t})"></i>${TL[t]}</span>`).join("")+`<span>· ขนาดวง = จำนวนชุดที่เจอ</span>`
+   :Object.entries(POS).filter(([k])=>DATA.words.some(w=>w.pos?.[0]===k)).map(([k,v])=>`<span><i style="background:${v[3]}"></i>${v[0]} · ${v[1]} · ${v[2]}</span>`).join("");
+  $("src").textContent=DATA.meta?.label||`ข้อสอบ ${N()} ชุด`;
+}
+
+/* ---------- field: globe + map ---------- */
+const ml=$("ml"),mz=$("mz"),gl=$("gl"),cam=$("cam"),fig=$("fig");let nodes=[],vx=0,vy=0,raf=0,zoomB=null,camT=0,camTo=0,camNode=null,camFx=0,camFy=0;const CAMK=1.9;
+const gcol=w=>state.mode==="freq"?`var(--${tier(w)})`:posOf(w.pos?.[0])[3];
+const gball=(w,r)=>{const R2=r*UP,fs=Math.min(R2*.92,R2*1.75/w.h.length);return`<div class="gb zh" tabindex="0" role="button" aria-label="${esc(w.h)} ${esc(MEAN(w))}" data-h="${esc(K(w))}" style="--c:${gcol(w)};width:${(2*R2).toFixed(1)}px;height:${(2*R2).toFixed(1)}px;margin:${(-R2).toFixed(1)}px 0 0 ${(-R2).toFixed(1)}px;font-size:${fs.toFixed(1)}px"><i></i><span>${esc(w.h)}</span></div>`};
+function mark(){
+  if(state.view==="globe"){for(const n of nodes)n.el.classList.toggle("sel",K(n.w)===state.sel);return}
+  for(const g of mz.children)g.classList.toggle("sel",g.dataset.h===state.sel)}
+let lastWH="";
+function build(){
+  cancelAnimationFrame(raf);d3.select(ml).on(".zoom",null);nodes=[];const globe=state.view==="globe";
+  ml.classList.toggle("on",!globe);gl.classList.toggle("on",globe);
+  const W=fig.clientWidth,H=fig.clientHeight;if(!W||!H)return;lastWH=W+"x"+H;
+  const all=shown(),items=all.slice(0,globe?GLOBE_MAX:MAP_MAX);
+  $("hint").textContent=(globe?"ลากเพื่อหมุน · แตะคำเพื่อดู":"ลากเพื่อเลื่อน · หยิกหรือสกรอลล์เพื่อซูม")+(all.length>items.length?` · แสดง ${items.length} จาก ${all.length} คำแรก`:"");
+  if(globe){mz.innerHTML="";cam.style.transform="";if(!items.length){cam.innerHTML=`<div class="gmsg">ไม่พบคำที่ตรงกับตัวกรอง</div>`;return}}
+  else{cam.innerHTML="";mz.style.transform="";if(!items.length){mz.innerHTML=`<div class="gmsg">ไม่พบคำที่ตรงกับตัวกรอง</div>`;return}}
+  if(!globe){
+    const root=d3.pack().size([W,H]).padding(W<520?3:5)(d3.hierarchy({children:items}).sum(d=>Math.pow(.6+d.f+Math.log1p(d.n||0)*.6,1.7)));
+    mz.innerHTML=root.leaves().map(n=>{const r=n.r,w=n.data,fs=Math.min(r*.92,r*1.75/w.h.length);return`<div class="gb zh" tabindex="0" role="button" aria-label="${esc(w.h)} ${esc(MEAN(w))}" data-h="${esc(K(w))}" data-x="${n.x.toFixed(1)}" data-y="${n.y.toFixed(1)}" style="--c:${gcol(w)};width:${(2*r).toFixed(1)}px;height:${(2*r).toFixed(1)}px;margin:${(-r).toFixed(1)}px 0 0 ${(-r).toFixed(1)}px;font-size:${fs.toFixed(1)}px;transform:translate(${n.x.toFixed(1)}px,${n.y.toFixed(1)}px)"><i></i><span>${esc(w.h)}</span></div>`}).join("");
+    let still=0;zoomB=d3.zoom().scaleExtent([.6,12]).on("start",()=>{clearTimeout(still);mz.classList.add("moving")}).on("zoom",e=>{const t=e.transform;mz.style.transform=`translate(${t.x}px,${t.y}px) scale(${t.k})`}).on("end",()=>{clearTimeout(still);still=setTimeout(()=>mz.classList.remove("moving"),180)});d3.select(ml).call(zoomB).on("dblclick.zoom",null).call(zoomB.transform,d3.zoomIdentity);
+    mark();return;
+  }
+  const R=Math.min(W,H)*.4,mf=maxF(),k=items.length,ga=Math.PI*(3-Math.sqrt(5)),base=Math.max(12,R/8.8);
+  cam.innerHTML=items.map(w=>gball(w,base*(.62+.68*Math.sqrt((w.f+Math.log1p(w.n||0)*.6)/(mf+Math.log1p(40)*.6))))).join("");
+  const els=[...cam.children];
+  nodes=items.map((w,i)=>{const y=k===1?0:1-2*i/(k-1),rr=Math.sqrt(1-y*y),t=ga*i*7.3;return{w,el:els[i],x:Math.cos(t)*rr,y,z:Math.sin(t)*rr,zi:-1,op:-1}});
+  rot(.4,.6);nodes.R=R;nodes.cx=W/2;nodes.cy=H/2;camNode=state.locked?nodes.find(n=>K(n.w)===state.sel)||null:null;camT=camTo=camNode?1:0;
+  mark();frame();
+}
+function rot(ay,ax){for(const n of nodes){const x=n.x*Math.cos(ay)+n.z*Math.sin(ay),z=-n.x*Math.sin(ay)+n.z*Math.cos(ay);n.x=x;n.z=z;const y=n.y*Math.cos(ax)-n.z*Math.sin(ax),z2=n.y*Math.sin(ax)+n.z*Math.cos(ax);n.y=y;n.z=z2}}
+function frame(){
+  if(state.view!=="globe"||!nodes.length)return;
+  if(!dragging){if(state.locked){vx=vy=0}else{vx*=.95;vy*=.95;const idle=RM.matches?0:.0022;if(Math.abs(vx)<idle)vx=vx<0?-idle:idle;rot(vx,vy)}}
+  const D=2.6,{R,cx,cy}=nodes;
+  for(const n of nodes){const on=K(n.w)===state.sel,on0=on&&state.locked;n.s=(n.s||1)+((on0?1.25:1)-(n.s||1))*(RM.matches?1:.15);const sc=D/(D-n.z)*n.s;n.px=cx+n.x*R*sc;n.py=cy+n.y*R*sc;
+    n.el.style.transform=`translate3d(${n.px.toFixed(1)}px,${n.py.toFixed(1)}px,0) scale(${(sc*.85/UP).toFixed(3)})`;
+    const op=on?1:Math.round((.22+.78*(n.z+1)/2)*(1-.4*camT)*50)/50;if(op!==n.op){n.op=op;n.el.style.opacity=op}
+    const zi=on?999:Math.round((n.z+1)*200);if(zi!==n.zi){n.zi=zi;n.el.style.zIndex=zi}}
+  camT=RM.matches?camTo:camT+(camTo-camT)*.1;if(Math.abs(camTo-camT)<.002)camT=camTo;
+  if(camNode){const e=RM.matches||camT<.05?1:.18;camFx+=(camNode.px-camFx)*e;camFy+=(camNode.py-camFy)*e}if(camT===0&&camTo===0)camNode=null;
+  const k=1+(CAMK-1)*camT,fx=cx+(camFx-cx)*camT,fy=cy+(camFy-cy)*camT;
+  cam.style.transform=camT?`translate(${cx}px,${cy}px) scale(${k.toFixed(3)}) translate(${(-fx).toFixed(1)}px,${(-fy).toFixed(1)}px)`:"";
+  raf=requestAnimationFrame(frame);
+}
+let dragging=false,sx=0,sy=0,lx=0,ly=0,moved=0,downEl=null;
+gl.addEventListener("pointerdown",e=>{dragging=true;sx=lx=e.clientX;sy=ly=e.clientY;moved=0;downEl=e.target.closest(".gb");try{gl.setPointerCapture(e.pointerId)}catch(_){}});
+gl.addEventListener("pointermove",e=>{if(!dragging)return;const dx=e.clientX-lx,dy=e.clientY-ly;lx=e.clientX;ly=e.clientY;moved=Math.max(moved,Math.hypot(e.clientX-sx,e.clientY-sy));vx=dx*.006;vy=-dy*.006;rot(vx,vy)});
+const endDrag=()=>{if(!dragging)return;dragging=false;if(moved<6&&downEl){vx=vy=0;pick(downEl.dataset.h)}downEl=null};
+gl.addEventListener("pointerup",endDrag);gl.addEventListener("pointercancel",()=>{dragging=false;downEl=null});
+gl.addEventListener("keydown",e=>{const g=e.target.closest(".gb");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(g.dataset.h)}});
+ml.addEventListener("click",e=>{const g=e.target.closest(".gb");if(g)pick(g.dataset.h)});
+ml.addEventListener("keydown",e=>{const g=e.target.closest(".gb");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(g.dataset.h)}});
+document.addEventListener("visibilitychange",()=>{if(document.hidden)cancelAnimationFrame(raf);else if(state.view==="globe"){cancelAnimationFrame(raf);frame()}});
+const ro=new ResizeObserver(()=>{if(fig.clientWidth+"x"+fig.clientHeight!==lastWH)build()});ro.observe(fig);
+
+/* ---------- word sheet ---------- */
+const ROLE={pictophonetic:"ภาพ + เสียง (形声字)",ideographic:"รวมความหมาย (会意字)",pictographic:"อักษรภาพ (象形字)"};
+const SLOT={S:"ประธาน (Subject)",V:"กริยา (Verb)",O:"กรรม (Object)",N:"คำนาม (Noun)",Adj:"คุณศัพท์ (Adjective)",A:"สิ่งที่ 1",B:"สิ่งที่ 2"};
+const NB=24,bk=c=>c.codePointAt(0)%NB;
+const loadStrokes=cs=>Promise.all([...new Set([...cs].map(bk))].map(b=>strokeP[b]||(strokeP[b]=fetch(`strokes/${b}.json`).then(r=>r.json()).then(d=>Object.assign(STROKES,d)))));
+const pyOf=c=>CH()[c]?.p||"";
+function patHtml(f,word){return esc(f).split(esc(word)).map(part=>part.replace(/\b(S|V|O|N|Adj|A|B)\b/g,m=>`<span class="slot" title="${SLOT[m]}">${m}</span>`)).join(`<span class="hl">${esc(word)}</span>`)}
+function compRow(c){const e=CH()[c];if(!e)return"";
+  const parts=(e.d||[]).map(x=>{const r=e.sem===x?"sem":e.pho===x?"pho":"";return`<button class="cbtn ${r}" data-char="${esc(x)}" data-from="${esc(c)}">${esc(x)}<small>${r==="sem"?"ความหมาย":r==="pho"?"เสียง":esc((CH()[x]?.th||CH()[x]?.en||"").split(/[,;(]/)[0].slice(0,14))}</small></button>`}).join(`<span class="eq">+</span>`);
+  return`<div class="crow"><button class="cbtn" data-char="${esc(c)}">${esc(c)}<small>${esc(e.p)}</small></button>${parts?`<span class="eq">=</span>${parts}`:`<span class="note" style="margin:0">ตัวอักษรพื้นฐาน แยกต่อไม่ได้</span>`}</div>`}
+function writeBox(chars){const cs=[...chars].filter(c=>c.trim());
+  return`<h3>วิธีเขียน (ลำดับขีด)</h3><div class="hws">${cs.map((c,i)=>`<div class="hwc"><div class="hw" id="hw${i}"></div><span id="hwn${i}"></span></div>`).join("")}</div>
+  <div class="hwbar"><button class="btn" data-anim>▶ ดูลำดับขีด</button><button class="btn" data-quiz>✍ ลองเขียนเอง</button><button class="btn" data-show>แสดงตัวเต็ม</button></div><p class="note">ลองเขียน: ลากนิ้วหรือเมาส์ตามลำดับขีดในช่อง ถ้าผิด 3 ครั้งระบบจะบอกใบ้ขีดถัดไป ส่วนสีฟ้าคือขีดของหมวดคำ (部首)</p>`}
+let writers=[];
+function mountWriters(chars){writers=[];if(typeof HanziWriter==="undefined")return;const cs=[...chars].filter(c=>c.trim());
+  loadStrokes(cs).then(()=>{cs.forEach((c,i)=>{const el=$("hw"+i);if(!el)return;el.innerHTML="";try{const w=HanziWriter.create(el,c,{width:112,height:112,padding:8,showOutline:true,strokeColor:css("--ink"),radicalColor:css("--mid"),outlineColor:css("--rule"),highlightColor:css("--hi"),drawingColor:css("--hi"),strokeAnimationSpeed:1.2,delayBetweenStrokes:180,charDataLoader:(ch,ok,err)=>STROKES[ch]?ok(STROKES[ch]):err()});writers.push(w);const n=$("hwn"+i);if(n&&STROKES[c])n.textContent=`${STROKES[c].strokes.length} ขีด`}catch(e){}})}).catch(()=>{})}
+async function animAll(){for(const w of writers){try{w.cancelQuiz();await w.animateCharacter()}catch(e){}}}
+function wordHtml(w){const n=N(),parts=w.parts||[0,0,0],mx=Math.max(1,...parts),t=tier(w);
+  return`<div class="big"><span class="zh">${esc(w.h)}</span><div class="py">${pyHtml(w.p)}</div><button class="say" data-say="${esc(w.h)}" aria-label="ฟังเสียง">🔊</button></div>
+  <div class="th">${esc(w.th||"")}</div>${w.en?`<p class="note" style="margin-top:${w.th?"-4px":"0"}">EN: ${esc(w.en)}</p>`:""}${!w.th?`<p class="note">ยังไม่มีคำแปลภาษาไทย</p>`:""}
+  <div>${(w.pos||[]).map(k=>{const p=posOf(k);return`<span class="chip" style="color:${p[3]}">${esc(p[0])} · ${esc(p[1])} · ${esc(p[2])}</span>`}).join("")}${w.lv?`<span class="chip" style="color:var(--mute)">HSK ${w.lv==7?"7–9":esc(w.lv)}</span>`:""}<span class="chip" style="color:var(--${t})">${TL[t]}</span></div>
+  ${w.f?`<h3>เจอในข้อสอบ ${w.f} จาก ${n} ชุด · รวม ${w.n||0} ครั้ง</h3><div class="bar"><b style="width:${Math.min(100,w.f/n*100).toFixed(0)}%;background:var(--${t})"></b></div>
+  <h3>จำนวนครั้งที่เจอในแต่ละพาร์ท</h3><div class="parts">${parts.map((v,i)=>`<span>${PARTS[i]}</span><div class="bar"><b style="width:${(v/mx*100).toFixed(0)}%;background:var(--mid)"></b></div><span>${v}</span>`).join("")}</div>`:`<h3>ไม่พบในข้อสอบ ${n} ชุดที่วิเคราะห์</h3>`}
+  ${w.note2?`<p class="note">${esc(w.note2)}</p>`:""}
+  ${[...w.h].some(c=>CH()[c])?`<h3>ส่วนประกอบของตัวอักษร (部件) · แตะเพื่อดูความหมาย</h3>${[...w.h].map(compRow).join("")}<p class="note"><span style="color:var(--hi)">กรอบแดง</span> = ส่วนบอกความหมาย · <span style="color:var(--mid)">กรอบฟ้า</span> = ส่วนบอกเสียง</p>`:""}
+  ${w.use?.length?`<h3>วิธีใช้ (โครงสร้างประโยค)</h3>${w.use.map(u=>`<div class="pat"><div class="f">${patHtml(u.f,w.h)}</div><p>${esc(u.th)}</p>${u.ex?`<p class="zh">${esc(u.ex[0])}</p><p class="p2" style="color:var(--mute)">${esc(u.ex[1])}</p><p>${esc(u.ex[2])}</p>`:""}</div>`).join("")}${w.note?`<div class="tip">💡 ${esc(w.note)}</div>`:""}`:""}
+  ${w.col?.length?`<h3>คำที่มักมาคู่กัน</h3><ul class="col">${w.col.map(c=>`<li><span class="zh" style="font-weight:600">${esc(c[0])}</span> · ${esc(c[1])} — ${esc(c[2])}</li>`).join("")}</ul>`:""}
+  ${w.ex?.length?`<h3>ประโยคตัวอย่าง</h3>${w.ex.map(e=>`<div class="ex"><button class="say" data-say="${esc(e[0])}" aria-label="ฟังประโยค">🔊</button><div class="zh">${esc(e[0])}</div><p class="p2">${esc(e[1])}</p>${e[2]?`<p>${esc(e[2])}</p>`:""}${e[3]?`<p class="note" style="margin:2px 0 0">ที่มา: ${esc(e[3])}</p>`:""}</div>`).join("")}`:""}
+  ${writeBox(w.h)}`}
+function charHtml(c,from,prev){const e=CH()[c]||{},pe=from?CH()[from]:null;
+  const role=pe?(pe.sem===c?`ใน <b class="zh">${esc(from)}</b> ตัว <b class="zh">${esc(c)}</b> เป็น<span style="color:var(--hi)">ส่วนบอกความหมาย</span>`:pe.pho===c?`ใน <b class="zh">${esc(from)}</b> ตัว <b class="zh">${esc(c)}</b> เป็น<span style="color:var(--mid)">ส่วนบอกเสียง</span> (${esc(pe.p)} อ่านคล้าย ${esc(e.p)})`:`<b class="zh">${esc(c)}</b> เป็นส่วนหนึ่งของ <b class="zh">${esc(from)}</b>`):"";
+  const inWords=DATA.words.filter(w=>w.h.includes(c)||[...w.h].some(x=>(CH()[x]?.d||[]).includes(c))).slice(0,30);
+  return`${prev?`<button class="back" data-back>← กลับไป ${esc(prev)}</button>`:""}
+  <div class="big"><span class="zh">${esc(c)}</span><div class="py">${pyHtml(e.p)}</div>${e.p?`<button class="say" data-say="${esc(c)}" aria-label="ฟังเสียง">🔊</button>`:""}</div>
+  <div class="th">${esc(e.th||"")}</div>${e.en?`<p class="note" style="margin-top:-4px">EN: ${esc(e.en)}</p>`:""}
+  <div>${e.t?`<span class="chip" style="color:var(--mute)">${esc(ROLE[e.t]||e.t)}</span>`:""}</div>
+  ${role?`<div class="tip">${role}</div>`:""}${e.hint?`<p class="note">ที่มา: ${esc(e.hint)}</p>`:""}
+  ${(e.d||[]).length?`<h3>แยกส่วนต่อได้</h3>${compRow(c)}`:""}
+  ${inWords.length?`<h3>คำในคลังที่มีส่วนนี้</h3><div class="words">${inWords.map(w=>`<button data-word="${esc(K(w))}">${esc(w.h)}</button>`).join("")}</div>`:""}
+  ${writeBox(c)}`}
+function sheet(animate){const b=$("body"),top=state.nav[state.nav.length-1];
+  if(!top){b.innerHTML=`<p class="empty">แตะที่คำในแผนภาพหรือในตารางด้านล่าง เพื่อดูรายละเอียด</p><h3>สีพินอินบอกวรรณยุกต์</h3><p>${[1,2,3,4].map(t=>`<span class="chip" style="color:var(--t${t})">เสียง ${t}</span>`).join("")}<span class="chip" style="color:var(--t0)">เสียงเบา</span></p>`;writers=[];return}
+  const wait=`<p class="empty">กำลังโหลดรายละเอียด…</p>`,again=()=>{if(state.nav[state.nav.length-1]===top)sheet(false)};
+  if(top.w){const w=WMAP[top.w]||DATA.words.find(x=>K(x)===top.w);if(!w){state.nav=[];return sheet()}
+    if(!wordReady(w)){b.innerHTML=wait;Promise.all([loadDet(w),ensureChars(w.h)]).then(again);return}
+    b.innerHTML=wordHtml(w);mountWriters(w.h)}
+  else{if(DATA.split&&!charsReady(top.c)){b.innerHTML=wait;ensureChars(top.c).then(again);return}
+    const p=state.nav[state.nav.length-2];b.innerHTML=charHtml(top.c,top.from,p?(p.w||p.c):"");mountWriters(top.c)}
+  if(animate){b.classList.remove("enter");void b.offsetWidth;b.classList.add("enter");$("sheet").scrollTop=0}}
+function openChar(c,from){state.nav.push({c,from});sheet(true);$("sheet").classList.add("open")}
+const LV=l=>l==7?"7–9":l,nf=n=>n.toLocaleString("en-US");let LALL=[],LN=0;
+const row=(w,i)=>`<tr tabindex="0" data-h="${esc(K(w))}"><td class="n" data-l="#">${i+1}</td><td class="zh" data-l="คำ" style="font-size:18px;font-weight:700;color:${color(w)}">${esc(w.h)}</td><td data-l="พินอิน">${pyHtml(w.p)}</td><td data-l="ความหมาย">${esc(MEAN(w))}</td><td data-l="ชนิดคำ">${(w.pos||[]).map(k=>esc(posOf(k)[0]+" ("+posOf(k)[2]+")")).join(", ")}</td><td class="n" data-l="HSK">${esc(LV(w.lv||""))}</td><td class="n" data-l="เจอ">${w.f}/${N()}</td></tr>`;
+function summary(){const c={};for(const w of DATA.words)c[w.lv]=(c[w.lv]||0)+1;
+  $("lvs").innerHTML=`<button data-lv="all" aria-pressed="${state.lv==="all"}">ทั้งหมด <b>${nf(DATA.words.length)}</b></button>`+Object.keys(c).sort((a,b)=>a-b).map(l=>`<button data-lv="${l}" aria-pressed="${state.lv===String(l)}">HSK ${LV(l)} <b>${nf(c[l])}</b></button>`).join("")}
+function list(){LALL=shown();LN=0;$("list").innerHTML="";summary();
+  const t={hi:0,mid:0,lo:0,none:0};for(const w of LALL)t[tier(w)]++;
+  const scope=state.q.trim()?`ผลค้นหา "${state.q.trim()}"`:`${state.lv==="all"?"ทุกระดับ":"HSK "+LV(state.lv)}${state.pos!=="all"?" · "+posOf(state.pos)[0]:""}`;
+  $("lsum").innerHTML=`${esc(scope)} · <b style="color:var(--ink)">${nf(LALL.length)} คำ</b> · `+["hi","mid","lo","none"].map(k=>`<span style="color:var(--${k})">●</span> ${TL[k]} ${nf(t[k])}`).join(" · ");
+  if(!LALL.length){$("list").innerHTML=`<tr><td colspan="7" class="empty">ไม่พบคำ</td></tr>`;$("more").textContent="";return}
+  more()}
+function more(){if(LN>=LALL.length)return;const next=LALL.slice(LN,LN+LIST_STEP);$("list").insertAdjacentHTML("beforeend",next.map((w,i)=>row(w,LN+i)).join(""));LN+=next.length;
+  $("more").textContent=LN<LALL.length?`แสดง ${nf(LN)} จาก ${nf(LALL.length)} คำ · เลื่อนลงเพื่อดูต่อ`:`แสดงครบ ${nf(LALL.length)} คำแล้ว`}
+new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting))more()},{rootMargin:"800px 0px"}).observe($("more"));
+$("more").addEventListener("click",more);
+$("lvs").addEventListener("click",e=>{const b=e.target.closest("button[data-lv]");if(!b)return;state.lv=b.dataset.lv;$("lv").value=state.lv;if(state.q){state.q="";$("q").value=""}build();list()});
+function pick(h){
+  if(state.sel===h&&state.locked){state.sel=null;state.locked=false;camTo=0;mark();if(innerWidth<=900)$("sheet").classList.remove("open");return}
+  state.sel=h;state.locked=true;state.nav=[{w:h}];vx=vy=0;mark();sheet(true);$("sheet").classList.add("open");
+  const g=state.view==="map"?[...mz.children].find(x=>x.dataset.h===h):null;
+  if(state.view==="globe"){const nd=nodes.find(n=>K(n.w)===h);if(nd){camNode=nd;camTo=1}else camTo=0}
+  if(g&&zoomB){const x=+g.dataset.x,y=+g.dataset.y,k=Math.max(1.6,d3.zoomTransform(ml).k);d3.select(ml).transition().duration(RM.matches?0:600).call(zoomB.transform,d3.zoomIdentity.translate(ml.clientWidth/2-k*x,ml.clientHeight/2-k*y).scale(k))}
+}
+function render(){CSSC={};legend();build();mark();sheet(false);list()}
+
+/* ---------- events ---------- */
+$("list").addEventListener("click",e=>{const r=e.target.closest("tr[data-h]");if(r)pick(r.dataset.h)});
+$("list").addEventListener("keydown",e=>{const r=e.target.closest("tr[data-h]");if(r&&e.key==="Enter")pick(r.dataset.h)});
+$("sheet").addEventListener("click",e=>{const t=e.target.closest("[data-say],[data-char],[data-word],[data-back],[data-anim],[data-quiz],[data-show]");if(!t)return;
+  if(t.dataset.say!==undefined)say(t.dataset.say);
+  else if(t.dataset.char!==undefined)openChar(t.dataset.char,t.dataset.from||null);
+  else if(t.dataset.word!==undefined){state.locked=false;pick(t.dataset.word)}
+  else if(t.dataset.back!==undefined){state.nav.pop();sheet(true)}
+  else if(t.dataset.anim!==undefined)animAll();
+  else if(t.dataset.quiz!==undefined)writers.forEach(w=>{try{w.quiz()}catch(e){}});
+  else if(t.dataset.show!==undefined)writers.forEach(w=>{try{w.cancelQuiz();w.showCharacter()}catch(e){}})});
+$("close").addEventListener("click",()=>$("sheet").classList.remove("open"));
+let qt;$("q").addEventListener("input",e=>{clearTimeout(qt);qt=setTimeout(()=>{state.q=e.target.value;build();list();const top=shown()[0];if(top&&state.q.trim()&&top.h!==state.sel)pick(top.h)},180)});
+$("lv").addEventListener("change",e=>{state.lv=e.target.value;build();list()});
+$("pos").addEventListener("change",e=>{state.pos=e.target.value;build();list()});
+const seg=(id,key,attr)=>$(id).addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;for(const x of $(id).children)x.setAttribute("aria-pressed",x===b);state[key]=b.dataset[attr];render()});
+seg("tier","tier","t");seg("mode","mode","m");seg("view","view","v");
+matchMedia("(prefers-color-scheme:dark)").addEventListener("change",render);
+new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+
+/* ---------- data ---------- */
+function use(d,msg){const words=d.split?d.words.map(fromArr):(Array.isArray(d)?d:d.words);if(!Array.isArray(words)||!words.every(w=>w&&w.h&&typeof w.f==="number"))throw new Error("bad");
+  DATA={meta:d.meta||{sets:Math.max(1,...words.map(w=>w.f))},words,split:!!d.split};CHARS=d.split?{}:(d.chars||{});WMAP={};for(const w of words)WMAP[K(w)]=w;state.sel=null;state.locked=false;state.nav=[];
+  fillSelects();render();if(msg)$("msg").textContent=msg}
+const loadMain=()=>fetch("core1.json").then(r=>{if(!r.ok)throw 0;return r.json()});
+function loadMore(){if(!DATA.split)return;fetch("core2.json").then(r=>r.json()).then(o=>{const ws=o.words.map(fromArr);for(const w of ws){DATA.words.push(w);WMAP[K(w)]=w}
+  const v=$("lv").value,lvs=[...new Set(DATA.words.map(w=>w.lv))].sort((a,b)=>a-b);$("lv").innerHTML=`<option value="all">ทุกระดับ HSK</option>`+lvs.map(l=>`<option value="${l}">HSK ${l==7?"7–9":l}</option>`).join("");$("lv").value=v;
+  if(state.q.trim()||state.lv==="all"){build();list()}else summary()}).catch(()=>{})}
+$("apply").addEventListener("click",()=>{try{const d=JSON.parse($("ta").value);use(d,`ใช้ข้อมูลแล้ว ${(d.words||d).length} คำ`);try{localStorage.setItem("hskvocab2",JSON.stringify(DATA))}catch(e){}}catch(e){$("msg").textContent="อ่าน JSON ไม่ได้ ทุกคำต้องมีอย่างน้อย h และ f"}});
+$("copy").addEventListener("click",()=>{navigator.clipboard.writeText(JSON.stringify(DATA)).then(()=>$("msg").textContent="คัดลอกแล้ว",()=>$("msg").textContent="คัดลอกไม่ได้ ลองเลือกข้อความในช่องเอง")});
+$("reset").addEventListener("click",()=>{try{localStorage.removeItem("hskvocab2")}catch(e){}loadMain().then(d=>{use(d,"กลับไปใช้ข้อมูลหลักแล้ว");loadMore()},()=>$("msg").textContent="โหลดข้อมูลหลักไม่ได้")});
+
+sheet(false);
+let saved=null;try{saved=JSON.parse(localStorage.getItem("hskvocab2")||"null")}catch(e){}
+$("hint").textContent="กำลังโหลดคำศัพท์…";
+(saved?Promise.resolve(saved):loadMain()).then(d=>{use(d);setTimeout(()=>{try{window.requestIdleCallback?requestIdleCallback(loadMore,{timeout:2500}):loadMore()}catch(e){loadMore()}},400);$("ta").value=JSON.stringify({meta:DATA.meta,words:DATA.words.slice(0,2)},null,1)},()=>{$("body").innerHTML=`<p class="empty">โหลดไฟล์ข้อมูลไม่ได้ ลองรีเฟรชหน้า หรือวาง JSON ในช่องด้านล่าง</p>`});
+}
+</script>
+<script>
+try{if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")&&window.top===window&&!/claude/.test(location.hostname)){
+  const off=document.getElementById("off"),had=!!navigator.serviceWorker.controller;
+  const ok=()=>{off.textContent="✓ ใช้งานแบบไม่มีเน็ตได้แล้ว"};
+  if(had)ok();else off.textContent="กำลังดาวน์โหลดข้อมูลทั้งหมดลงเครื่อง (ประมาณ 11 MB) รอสักครู่…";
+  navigator.serviceWorker.addEventListener("message",e=>{if(e.data&&e.data.ready){ok();if(had&&e.data.updated)off.textContent="✓ อัปเดตข้อมูลใหม่แล้ว · ใช้งานแบบไม่มีเน็ตได้"}});
+  let re=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(had&&!re){re=true;location.reload()}});
+  navigator.serviceWorker.register("sw.js").catch(()=>{off.textContent=""});
+}}catch(e){}
+</script>
+</body>
+</html>
